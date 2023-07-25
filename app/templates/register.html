@@ -1,0 +1,26 @@
+{% extends 'root.html' %}
+{% block body %}
+
+<div class="d-flex justify-content-center" >
+
+<div class="col-md-4 col-sm-8 offset-md-3 m-3 rounded-3 " style="background-color:#22A699">
+    <h1 class="font-monospace text-white m-2 text-center fw-bold">Register</h1>
+    <form action=" " method="POST" class="m-3 p-2">
+        {% if form.errors %}
+			<div class="alert alert-warning alert-dismissible fade show" role="alert">
+			  Your Form Has Errors
+			  {% for field in form %}
+			  	{% if field.errors %}
+			  		{{ field.errors }}
+			  	{% endif %}
+			  {% endfor %}
+			  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+			</div>
+		{% endif %}
+          {% csrf_token %}
+           {{form.as_p}}
+
+    <button type="submit" class="btn btn-danger text-white">Register</button>
+    </form>
+
+{% endblock body%}

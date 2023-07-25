@@ -1,0 +1,22 @@
+{% extends 'root.html' %}
+{% block body %}
+
+<div class="col-md-6 offset-md-3 " >
+
+<br/>
+
+<form method="POST" action="{% url 'add_record' %}" class="col-md-8 p-4 rounded-3" style="background-color:#CECE5A">
+	<h1 class=" font-monospace mt-3 fw-bold" style="color:#C51605;">Add Record</h1>
+    {% csrf_token %}
+
+	{{ form.as_p }}
+
+<br/>
+  <button type="submit" class="btn btn-primary">Add Record</button>
+   <a href="{% url 'home' %}" class="btn btn-danger">Back</a>
+
+</form>
+
+</div>
+
+{% endblock body%}
